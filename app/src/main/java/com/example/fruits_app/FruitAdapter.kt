@@ -1,10 +1,13 @@
 package com.example.fruits_app
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class FruitAdapter(private val fruits: List<Fruit>) : RecyclerView.Adapter<FruitAdapter.FruitViewHolder>() {
@@ -24,12 +27,13 @@ class FruitAdapter(private val fruits: List<Fruit>) : RecyclerView.Adapter<Fruit
     inner class FruitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val fruitName: TextView
         private val fruitImage: ImageView
-
+        val myIntent:Intent = Intent(itemView.context, FruitDetailActivity::class.java)
         init {
             fruitName = itemView.findViewById(R.id.fruitName)
             fruitImage = itemView.findViewById(R.id.fruitImage)
             fruitImage.setOnClickListener {
-                fruits[layoutPosition]
+                startActivity(itemView.context, myIntent, null)
+                Log.d("myApp", "${fruits[layoutPosition].fruitName}")
             }
         }
 

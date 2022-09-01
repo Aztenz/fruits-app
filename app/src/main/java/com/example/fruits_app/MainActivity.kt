@@ -1,10 +1,7 @@
 package com.example.fruits_app
 
-import android.app.ActivityOptions
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -14,12 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         recyclerView = findViewById(R.id.recycler_view)
         val fruitAdaptor = FruitAdapter(fruitsList())
-        val button1: Button = findViewById(R.id.button1)
         recyclerView.adapter = fruitAdaptor
-        button1.setOnClickListener {
-            val myIntent  = Intent(this, FruitDetailActivity::class.java)
-            startActivity(myIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-        }
     }
     private fun fruitsList(): List<Fruit> {
         val fruits = mutableListOf<Fruit>()
