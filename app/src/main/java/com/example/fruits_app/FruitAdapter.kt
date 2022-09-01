@@ -1,5 +1,6 @@
 package com.example.fruits_app
 
+import android.app.Activity
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,13 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class FruitAdapter(private val fruits: List<Fruit>) : RecyclerView.Adapter<FruitAdapter.FruitViewHolder>() {
+class FruitAdapter(private val fruits: List<Fruit>) :
+    RecyclerView.Adapter<FruitAdapter.FruitViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FruitViewHolder {
-        return FruitViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_layout, parent, false))
+        return FruitViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_layout, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: FruitViewHolder, position: Int) {
@@ -28,12 +34,15 @@ class FruitAdapter(private val fruits: List<Fruit>) : RecyclerView.Adapter<Fruit
         private val fruitName: TextView
         private val fruitImage: ImageView
         private val myIntent: Intent = Intent(itemView.context, FruitDetailActivity::class.java)
+
         init {
             fruitName = itemView.findViewById(R.id.fruitName)
             fruitImage = itemView.findViewById(R.id.fruitImage)
             itemView.setOnClickListener {
                 myIntent.putExtra("fruitDescription", "${fruits[layoutPosition].description}")
-                startActivity(itemView.context, myIntent, null)
+                val options =ActivityOptionsCompat.makeSceneTransitionAnimation((itemView.context as Activity),
+                    fruitImage, "${ViewCompat.getTransitionName(fruitImage)}")
+                startActivity(itemView.context, myIntent, options.toBundle())
                 Log.d("myApp", "${fruits[layoutPosition].fruitName}")
             }
         }
