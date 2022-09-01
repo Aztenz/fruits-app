@@ -27,11 +27,12 @@ class FruitAdapter(private val fruits: List<Fruit>) : RecyclerView.Adapter<Fruit
     inner class FruitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val fruitName: TextView
         private val fruitImage: ImageView
-        val myIntent:Intent = Intent(itemView.context, FruitDetailActivity::class.java)
+        private val myIntent: Intent = Intent(itemView.context, FruitDetailActivity::class.java)
         init {
             fruitName = itemView.findViewById(R.id.fruitName)
             fruitImage = itemView.findViewById(R.id.fruitImage)
-            fruitImage.setOnClickListener {
+            itemView.setOnClickListener {
+                myIntent.putExtra("fruitDescription", "${fruits[layoutPosition].description}")
                 startActivity(itemView.context, myIntent, null)
                 Log.d("myApp", "${fruits[layoutPosition].fruitName}")
             }
