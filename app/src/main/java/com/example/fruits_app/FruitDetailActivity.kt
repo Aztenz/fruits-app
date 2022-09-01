@@ -1,13 +1,11 @@
 package com.example.fruits_app
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class FruitDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val myIntent  = Intent(this, )
+        setContentView(R.layout.activity_fruit_detail)
     }
 }
