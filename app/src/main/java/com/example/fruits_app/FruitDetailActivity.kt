@@ -3,6 +3,7 @@ package com.example.fruits_app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -13,7 +14,10 @@ class FruitDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fruit_detail)
         setSupportActionBar(findViewById(R.id.toolbar))
         val myText: TextView = findViewById(R.id.description_label)
-        Log.d("myApp", "${intent.getStringExtra("fruitDescription")}")
-        //myText.text = intent.getStringExtra("fruitDescription")
+        val myToolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        val myImage: ImageView = findViewById(R.id.fruitDetailImage)
+        myImage.setImageResource(intent.getIntExtra("fruitImage", -1))
+        myToolbar.title = intent.getStringExtra("fruitName")
+        myText.text = intent.getStringExtra("fruitDescription")
     }
 }

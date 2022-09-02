@@ -40,10 +40,11 @@ class FruitAdapter(private val fruits: List<Fruit>) :
             fruitImage = itemView.findViewById(R.id.fruitImage)
             itemView.setOnClickListener {
                 myIntent.putExtra("fruitDescription", "${fruits[layoutPosition].description}")
+                myIntent.putExtra("fruitName", "${fruits[layoutPosition].fruitName}")
+                myIntent.putExtra("fruitImage", fruits[layoutPosition].fruitImageModelNumber)
                 val options =ActivityOptionsCompat.makeSceneTransitionAnimation((itemView.context as Activity),
                     fruitImage, "${ViewCompat.getTransitionName(fruitImage)}")
                 startActivity(itemView.context, myIntent, options.toBundle())
-                Log.d("myApp", "${fruits[layoutPosition].fruitName}")
             }
         }
 

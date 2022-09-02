@@ -23,7 +23,6 @@
                 android:id="@+id/fruitDetailImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_apple"
                 android:fitsSystemWindows="true"
                 android:transitionName="imageTransition"
                 app:layout_collapseMode="parallax" />
