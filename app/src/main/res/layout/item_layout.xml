@@ -9,6 +9,7 @@
     <ImageView
         android:id="@+id/fruitImage"
         android:layout_width="200dp"
+        android:fadingEdge="horizontal"
         android:layout_height="200dp"
         app:flow_horizontalAlign="center"
         app:flow_verticalAlign="center"
