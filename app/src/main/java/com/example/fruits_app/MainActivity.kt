@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun fruitsList(): List<Fruit> {
         val fruits = mutableListOf<Fruit>()
-        fruits.add(Fruit("Apple", R.drawable.ic_apple, getString(R.string.appleDescription)))
-        fruits.add(Fruit("Apricot", R.drawable.ic_apricot, "An Apricot"))
-        fruits.add(Fruit("Avocado", R.drawable.ic_avocado, "An Avocado"))
+        fruits.add(Fruit("Apple", R.drawable.ic_apple, getString(R.string.appleDescription), R.drawable.bg_apple))
+        fruits.add(Fruit("Apricot", R.drawable.ic_apricot, "An Apricot", R.drawable.bg_apricots))
+        fruits.add(Fruit("Avocado", R.drawable.ic_avocado, "An Avocado", R.drawable.bg_avocado))
         return fruits
     }
 }

@@ -16,6 +16,8 @@ class FruitDetailActivity : AppCompatActivity() {
         val myText: TextView = findViewById(R.id.description_label)
         val myToolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         val myImage: ImageView = findViewById(R.id.fruitDetailImage)
+        val myBackground: ImageView = findViewById(R.id.fruitBackgroundImage)
+        myBackground.setImageResource(intent.getIntExtra("fruitBackground", -1))
         myImage.setImageResource(intent.getIntExtra("fruitImage", -1))
         myToolbar.title = intent.getStringExtra("fruitName")
         myText.text = intent.getStringExtra("fruitDescription")

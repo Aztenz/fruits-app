@@ -41,6 +41,7 @@ class FruitAdapter(private val fruits: List<Fruit>) :
                 myIntent.putExtra("fruitDescription", "${fruits[layoutPosition].description}")
                 myIntent.putExtra("fruitName", "${fruits[layoutPosition].fruitName}")
                 myIntent.putExtra("fruitImage", fruits[layoutPosition].fruitImageModelNumber)
+                myIntent.putExtra("fruitBackground", fruits[layoutPosition].fruitBackGround)
                 val options =ActivityOptionsCompat.makeSceneTransitionAnimation((itemView.context as Activity),
                     fruitImage, "${ViewCompat.getTransitionName(fruitImage)}")
                 startActivity(itemView.context, myIntent, options.toBundle())
