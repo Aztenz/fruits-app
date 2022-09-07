@@ -22,7 +22,7 @@
             android:fadingEdge="horizontal"
             app:flow_horizontalAlign="center"
             app:flow_verticalAlign="center"
-            android:background="#44719E"
+            android:background="#4C7DAE"
             android:transitionName="imageTransition"
             android:layout_marginStart="15dp"
             tools:src="@tools:sample/avatars" />
